@@ -1,0 +1,14 @@
+name: wbs-deploy
+
+services:
+  wikibase:
+    ports:
+      - 8880:80
+
+  wdqs-frontend:
+    ports:
+      - 8834:80
+  traefik: null
+
+volumes:
+  traefik-letsencrypt-data: null # remove this volume
