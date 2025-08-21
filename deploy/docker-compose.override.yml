@@ -8,7 +8,9 @@ services:
   wdqs-frontend:
     ports:
       - 8834:80
-  traefik: null
+  traefik:
+    entrypoint: ["echo", "Service foo disabled"]
+
 
 volumes:
   traefik-letsencrypt-data: null # remove this volume
