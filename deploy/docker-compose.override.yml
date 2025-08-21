@@ -9,11 +9,7 @@ services:
     ports:
       - 8834:80
   traefik:
-    image: alpine
-    command: ["true"]
-    restart: "no"
-    ports: []
-    volumes: []
+    profiles: ["traefik"]
 
 
 volumes:
