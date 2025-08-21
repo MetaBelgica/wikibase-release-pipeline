@@ -9,7 +9,11 @@ services:
     ports:
       - 8834:80
   traefik:
-    entrypoint: ["echo", "Service foo disabled"]
+    image: alpine
+    command: ["true"]
+    restart: "no"
+    ports: []
+    volumes: []
 
 
 volumes:
