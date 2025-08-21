@@ -1,13 +1,13 @@
 name: wbs-deploy
 
 services:
-  wikibase:
-    ports:
-      - 8880:80
+  # wikibase:
+  #   ports:
+  #     - 8880:80
 
-  wdqs-frontend:
-    ports:
-      - 8834:80
+  # wdqs-frontend:
+  #   ports:
+  #     - 8834:80
 
   # This is the reverse proxy and SSL service
   traefik:
