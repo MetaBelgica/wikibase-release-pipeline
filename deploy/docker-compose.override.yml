@@ -60,6 +60,8 @@ services:
     environment:
       WIKIBASE_PUBLIC_HOST: ${WIKIBASE_PUBLIC_HOST}
       WDQS_PUBLIC_HOST: ${WDQS_PUBLIC_HOST}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 
   wdqs-updater:
