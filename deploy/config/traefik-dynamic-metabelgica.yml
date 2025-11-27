@@ -10,7 +10,7 @@ http:
     wdqs:
       loadBalancer:
         servers:
-          - url: "http://wdqs:9999"
+          - url: "http://host.docker.internal:8840"
 
     wdqs-frontend:
       loadBalancer:
@@ -47,8 +47,10 @@ http:
 
   middlewares:
     wdqs-prefix:
-      addPrefix:
-        prefix: /bigdata/namespace/wdq/
+      redirectRegex:
+        regex: "^/sparql/?(.*)"
+        replacement: "/"
+        permanent: true
 
     wdqs-headers:
       headers:
