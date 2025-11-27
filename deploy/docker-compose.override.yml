@@ -10,9 +10,6 @@ services:
   #     - 8834:80
 
   # This is the reverse proxy and SSL service
-  wdqs-updater:
-    profiles:
-      - disabled
   traefik:
     #profiles: ["traefik"]
     image: traefik:3
@@ -68,6 +65,8 @@ services:
 
 
   wdqs-updater:
+    profiles:
+      - disabled
     environment:
       WIKIBASE_CONCEPT_URI: https://${WIKIBASE_PUBLIC_HOST}
       WDQS_HOST: wdqs
