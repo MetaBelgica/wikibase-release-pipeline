@@ -62,7 +62,10 @@ services:
       WDQS_PUBLIC_HOST: ${WDQS_PUBLIC_HOST}
     extra_hosts:
       - "host.docker.internal:host-gateway"
-
+      
+  wdqs:
+    profiles:
+      - disabled
 
   wdqs-updater:
     profiles:
@@ -71,7 +74,6 @@ services:
       WIKIBASE_CONCEPT_URI: https://${WIKIBASE_PUBLIC_HOST}
       WDQS_HOST: wdqs
       WDQS_PORT: 9999
-
 
 volumes:
   traefik-letsencrypt-data: null # remove this volume
