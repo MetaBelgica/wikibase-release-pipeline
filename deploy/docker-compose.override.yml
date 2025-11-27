@@ -10,6 +10,9 @@ services:
   #     - 8834:80
 
   # This is the reverse proxy and SSL service
+  wdqs-updater:
+    profiles:
+      - disabled
   traefik:
     #profiles: ["traefik"]
     image: traefik:3
