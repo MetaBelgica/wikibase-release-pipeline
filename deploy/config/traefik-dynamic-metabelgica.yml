@@ -32,7 +32,13 @@ http:
       entryPoints: [ webkx ]
       rule: 'Host(`{{ env "WDQS_PUBLIC_HOST" }}`) && PathPrefix(`/sparql`) && (Method(`GET`) || Method(`OPTIONS`) || Method(`POST`))'
       service: wdqs
-      middlewares: [ wdqs-prefix, wdqs-headers, wdqs-cors-headers, wdqs-rate-limit ]
+      middlewares: 
+        - wdqs-prefix
+        - wdqs-headers
+        - wdqs-cors-headers
+        - wdqs-rate-limit
+        - wdqs-auth
+        - strip-auth-header
 
     wdqs-frontend-router:
       entryPoints: [ webkx ]
@@ -46,6 +52,16 @@ http:
       middlewares: [ quickstatements-redirectregex, quickstatements-stripprefix ]
 
   middlewares:
+    wdqs-auth: 
+      basicAuth:
+        users:
+          - '{{ env "WDQS_PASSWORD_HASH" }}'
+
+    strip-auth-header:
+      headers:
+        customRequestHeaders:
+          Authorization: "" 
+
     wdqs-prefix:
       redirectRegex:
         regex: "^/sparql/?(.*)"
