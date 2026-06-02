@@ -53,9 +53,12 @@ http:
 
   middlewares:
     wdqs-auth: 
-      basicAuth:
-        users:
-          - '{{ env "WDQS_PASSWORD_HASH" }}'
+      forwardAuth:
+        address: "http://host.docker.internal:8000/verify"
+#        basicAuth:
+#          users:
+#            - "admin:$apr1$Z2YDmahm$Cvyln4SlH5ireAXwJjEHw/"
+#            - "admin:$apr1$/zTcZbiH$SuGO9LnJTRTRnQ.nDlkDu."
 
     strip-auth-header:
       headers:
