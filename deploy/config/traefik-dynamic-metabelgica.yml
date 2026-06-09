@@ -10,7 +10,7 @@ http:
     wdqs:
       loadBalancer:
         servers:
-          - url: "http://host.docker.internal:8840"
+          - url: "http://host.docker.internal:8841"
 
     wdqs-frontend:
       loadBalancer:

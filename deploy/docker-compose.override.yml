@@ -7,7 +7,7 @@ services:
 
   # wdqs-frontend:
   #   ports:
-  #     - 8834:80
+  #     - 8840:80
 
   # This is the reverse proxy and SSL service
   traefik:
@@ -16,7 +16,7 @@ services:
     command:
       # metabelgica ports
       - "--entrypoints.webx.address=:8880"
-      - "--entrypoints.webkx.address=:8834"
+      - "--entrypoints.webkx.address=:8840"
 
       # traefik static configuration via command line
       # enable accesslog
@@ -53,7 +53,7 @@ services:
       - 8080:8080
       # MB ports
       - 8880:8880
-      - 8834:8834
+      - 8840:8840
     volumes:
       - ./config/traefik-dynamic-metabelgica.yml:/etc/traefik/dynamic.yml:ro
       - traefik-letsencrypt-data:/letsencrypt
